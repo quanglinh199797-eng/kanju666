@@ -2,93 +2,89 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
     <title>CMS 技术研究与示例项目 (kanju666)</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f4f7f6; color: #333; line-height: 1.5; margin: 0; padding: 15px; }
-        .container { max-width: 1200px; margin: 0 auto; text-align: left; }
-
-        /* 头部响应式调整 */
+        body { font-family: -apple-system, system-ui, sans-serif; background: #f4f7f6; color: #333; margin: 0; padding: 15px; }
+        .container { max-width: 1200px; margin: 0 auto; }
         header { background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 20px; }
-        h1 { color: #2c3e50; font-size: 1.5rem; margin: 0 0 10px 0; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        h1 { color: #2c3e50; font-size: 1.3rem; margin: 0; }
+        .disclaimer-box { background: #fffbe6; border-left: 4px solid #e67e22; padding: 12px; margin: 15px 0; font-size: 0.8rem; border-radius: 4px; text-align: left; }
 
-        .section-title { color: #e67e22; font-weight: bold; margin-top: 15px; display: block; font-size: 0.95rem; }
-        .disclaimer-box { background: #fdfdfd; border-left: 4px solid #e67e22; padding: 10px 15px; margin: 10px 0; font-size: 0.85rem; }
-        ul { padding-left: 20px; margin: 5px 0; }
-        li { margin-bottom: 5px; }
-
-        .tech-stack { font-size: 0.8rem; color: #7f8c8d; background: #f9f9f9; padding: 10px; border-radius: 4px; }
-
-        /* 响应式海报墙：使用 CSS Grid 自动适配列数 */
+        /* 响应式网格布局 */
         .wall { 
             display: grid; 
             grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
             gap: 15px; 
-            margin-top: 30px; 
         }
 
         .card { background: #fff; padding: 8px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); text-align: center; }
-        img { width: 100%; height: auto; aspect-ratio: 2/3; object-fit: cover; border-radius: 4px; background: #eee; }
-        .name { margin-top: 8px; font-size: 10px; color: #999; word-break: break-all; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; }
 
-        /* 针对手机端的小屏幕优化 */
+        /* 确保图片可点击，并显示为手型 */
+        .card a { text-decoration: none; display: block; }
+        img { 
+            width: 100%; 
+            height: auto; 
+            aspect-ratio: 2/3; 
+            object-fit: cover; 
+            border-radius: 4px; 
+            background: #eee;
+            -webkit-touch-callout: default; /* 显式开启 iOS 长按菜单 */
+        }
+        .name { margin-top: 8px; font-size: 10px; color: #999; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+        /* 手机端进一步优化 */
         @media (max-width: 600px) {
-            h1 { font-size: 1.2rem; }
             .wall { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px; }
-            .disclaimer-box { font-size: 0.8rem; padding: 8px 12px; }
             .card { padding: 5px; }
         }
-
-        footer { text-align: center; margin-top: 40px; color: #bdc3c7; font-size: 0.75rem; padding: 20px 0; }
+        footer { text-align: center; margin: 40px 0; color: #bdc3c7; font-size: 0.7rem; }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
             <h1>CMS 技术研究与示例项目 (kanju666)</h1>
-            <p style="font-size: 0.9rem;">本项目是一个基于开源 CMS 框架的技术研究示例。</p>
-
             <div class="disclaimer-box">
-                <span class="section-title">🛡️ 免责声明 (Disclaimer)</span>
-                <ul>
-                    <li><b>项目目的</b>：仅用于个人学习及学术交流，作者不建议将其用于商业用途。</li>
-                    <li><b>版权声明</b>：本项目不存储版权视频文件，所有内容通过第三方 API 实时调用。</li>
-                    <li><b>责任撇清</b>：使用者产生的一切法律后果由其本人承担，作者概不负责。</li>
-                    <li><b>侵权处理</b>：如侵犯合法权益，请联系后核实删除。</li>
-                </ul>
-            </div>
-
-            <div class="tech-stack">
-                <span class="section-title">🛠️ 技术栈</span>
-                Python / PHP | SQLite / MySQL | BeautifulSoup / DrissionPage
+                🛡️ <b>背书说明：</b>本项目仅用于技术研究。点击海报可查看原图，<b>长按图片即可保存到手机相册</b>。
             </div>
         </header>
 
         <div class="wall">
 
             <div class="card">
-                <img src="image/673629463463989248.jpg" alt="673629463463989248.jpg" loading="lazy">
+                <a href="image/673629463463989248.jpg" target="_blank">
+                    <img src="image/673629463463989248.jpg" alt="673629463463989248.jpg" loading="lazy">
+                </a>
                 <div class="name">673629463463989248.jpg</div>
             </div>
             <div class="card">
-                <img src="image/673680572903723008.jpg" alt="673680572903723008.jpg" loading="lazy">
+                <a href="image/673680572903723008.jpg" target="_blank">
+                    <img src="image/673680572903723008.jpg" alt="673680572903723008.jpg" loading="lazy">
+                </a>
                 <div class="name">673680572903723008.jpg</div>
             </div>
             <div class="card">
-                <img src="image/673687661151653888.jpg" alt="673687661151653888.jpg" loading="lazy">
+                <a href="image/673687661151653888.jpg" target="_blank">
+                    <img src="image/673687661151653888.jpg" alt="673687661151653888.jpg" loading="lazy">
+                </a>
                 <div class="name">673687661151653888.jpg</div>
             </div>
             <div class="card">
-                <img src="image/673697524481134592.jpg" alt="673697524481134592.jpg" loading="lazy">
+                <a href="image/673697524481134592.jpg" target="_blank">
+                    <img src="image/673697524481134592.jpg" alt="673697524481134592.jpg" loading="lazy">
+                </a>
                 <div class="name">673697524481134592.jpg</div>
             </div>
             <div class="card">
-                <img src="image/673752016425717760.jpg" alt="673752016425717760.jpg" loading="lazy">
+                <a href="image/673752016425717760.jpg" target="_blank">
+                    <img src="image/673752016425717760.jpg" alt="673752016425717760.jpg" loading="lazy">
+                </a>
                 <div class="name">673752016425717760.jpg</div>
             </div>
         </div>
         <footer>
-            <p>© 2026 Technical Research Lab | GitHub Pages Mobile Ready</p>
+            <p>© 2026 技术演示 | 支持手机端长按保存</p>
         </footer>
     </div>
 </body>
