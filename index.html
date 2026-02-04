@@ -2,46 +2,65 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>CMS 技术研究与示例项目 (kanju666)</title>
     <style>
-        body { font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #f4f7f6; color: #333; line-height: 1.6; margin: 0; padding: 20px; }
-        .container { max-width: 1000px; margin: 0 auto; text-align: left; }
-        header { background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 30px; }
-        h1 { color: #2c3e50; margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        .section-title { color: #e67e22; font-weight: bold; margin-top: 20px; display: block; }
-        .disclaimer-box { background: #fdfdfd; border-left: 5px solid #e67e22; padding: 15px 20px; margin: 15px 0; font-size: 0.9em; }
-        .tech-stack { font-size: 0.85em; color: #7f8c8d; background: #f9f9f9; padding: 10px; border-radius: 4px; }
-        .wall { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 40px; }
-        .card { background: #fff; padding: 10px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); width: 160px; text-align: center; }
-        img { width: 100%; height: 230px; object-fit: cover; border-radius: 4px; background: #eee; }
-        .name { margin-top: 10px; font-size: 11px; color: #999; word-break: break-all; }
-        footer { text-align: center; margin-top: 50px; color: #bdc3c7; font-size: 0.8em; border-top: 1px solid #eee; padding-top: 20px; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f4f7f6; color: #333; line-height: 1.5; margin: 0; padding: 15px; }
+        .container { max-width: 1200px; margin: 0 auto; text-align: left; }
+
+        /* 头部响应式调整 */
+        header { background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        h1 { color: #2c3e50; font-size: 1.5rem; margin: 0 0 10px 0; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+
+        .section-title { color: #e67e22; font-weight: bold; margin-top: 15px; display: block; font-size: 0.95rem; }
+        .disclaimer-box { background: #fdfdfd; border-left: 4px solid #e67e22; padding: 10px 15px; margin: 10px 0; font-size: 0.85rem; }
+        ul { padding-left: 20px; margin: 5px 0; }
+        li { margin-bottom: 5px; }
+
+        .tech-stack { font-size: 0.8rem; color: #7f8c8d; background: #f9f9f9; padding: 10px; border-radius: 4px; }
+
+        /* 响应式海报墙：使用 CSS Grid 自动适配列数 */
+        .wall { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
+            gap: 15px; 
+            margin-top: 30px; 
+        }
+
+        .card { background: #fff; padding: 8px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); text-align: center; }
+        img { width: 100%; height: auto; aspect-ratio: 2/3; object-fit: cover; border-radius: 4px; background: #eee; }
+        .name { margin-top: 8px; font-size: 10px; color: #999; word-break: break-all; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; }
+
+        /* 针对手机端的小屏幕优化 */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.2rem; }
+            .wall { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px; }
+            .disclaimer-box { font-size: 0.8rem; padding: 8px 12px; }
+            .card { padding: 5px; }
+        }
+
+        footer { text-align: center; margin-top: 40px; color: #bdc3c7; font-size: 0.75rem; padding: 20px 0; }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
             <h1>CMS 技术研究与示例项目 (kanju666)</h1>
-            <p>本项目是一个基于开源 CMS 框架（如苹果CMS等）的二次开发或代码结构研究示例。</p>
+            <p style="font-size: 0.9rem;">本项目是一个基于开源 CMS 框架的技术研究示例。</p>
 
             <div class="disclaimer-box">
                 <span class="section-title">🛡️ 免责声明 (Disclaimer)</span>
                 <ul>
-                    <li><b>项目目的</b>：本项目仅用于个人学习、代码结构研究以及学术交流目的。作者不建议将其用于任何商业用途。</li>
-                    <li><b>版权声明</b>：本项目代码中包含的采集逻辑和 API 接口均来自互联网公开资源。本项目<b>不存储</b>任何实际版权视频文件，所有视频内容均通过第三方公开 API 实时调用。</li>
-                    <li><b>责任撇清</b>：仓库作者不保证代码的完整性、准确性或可用性。用户因非法使用本项目代码或接口而产生的任何版权争议、行政处罚或法律后果，均由使用者本人承担，作者概不负责。</li>
-                    <li><b>侵权处理</b>：如版权方认为本项目内容侵犯其合法权益，请发送书面通知，作者将在验证后及时删除相关内容。</li>
-                    <li><b>使用条款</b>：请在符合所在国家和地区法律法规的前提下进行技术研究。严禁将本项目用于侵犯他人合法权益的行为。</li>
+                    <li><b>项目目的</b>：仅用于个人学习及学术交流，作者不建议将其用于商业用途。</li>
+                    <li><b>版权声明</b>：本项目不存储版权视频文件，所有内容通过第三方 API 实时调用。</li>
+                    <li><b>责任撇清</b>：使用者产生的一切法律后果由其本人承担，作者概不负责。</li>
+                    <li><b>侵权处理</b>：如侵犯合法权益，请联系后核实删除。</li>
                 </ul>
             </div>
 
             <div class="tech-stack">
                 <span class="section-title">🛠️ 技术栈</span>
                 Python / PHP | SQLite / MySQL | BeautifulSoup / DrissionPage
-                <br>
-                <span class="section-title">📝 许可证 (License)</span>
-                本项目代码根据 <b>MIT License</b> 许可协议发布。
             </div>
         </header>
 
@@ -69,7 +88,7 @@
             </div>
         </div>
         <footer>
-            <p>© 2026 Technical Research Lab | Deployment on GitHub Pages</p>
+            <p>© 2026 Technical Research Lab | GitHub Pages Mobile Ready</p>
         </footer>
     </div>
 </body>
