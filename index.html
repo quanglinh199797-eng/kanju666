@@ -5,23 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
     <title>CMS 技术研究与示例项目 (kanju666)</title>
     <style>
-        body { font-family: -apple-system, system-ui, sans-serif; background: #f4f7f6; color: #333; margin: 0; padding: 15px; }
-        .container { max-width: 1200px; margin: 0 auto; }
-        header { background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 20px; }
-        h1 { color: #2c3e50; font-size: 1.3rem; margin: 0; }
-        .disclaimer-box { background: #fffbe6; border-left: 4px solid #e67e22; padding: 12px; margin: 15px 0; font-size: 0.8rem; border-radius: 4px; text-align: left; }
+        body { font-family: -apple-system, system-ui, sans-serif; background: #f4f7f6; color: #333; margin: 0; padding: 15px; line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; }
 
-        /* 响应式网格布局 */
+        /* 头部描述区域：完整保留您的文字内容 */
+        header { background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 25px; text-align: left; }
+        h1 { color: #2c3e50; font-size: 1.6rem; margin: 0 0 15px 0; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .intro { font-size: 0.95rem; margin-bottom: 20px; }
+
+        .section-title { color: #e67e22; font-weight: bold; margin-top: 20px; display: block; font-size: 1.1rem; }
+        .disclaimer-box { background: #fdfdfd; border-left: 5px solid #e67e22; padding: 15px 20px; margin: 15px 0; font-size: 0.9rem; border-radius: 4px; }
+        .disclaimer-box b { color: #444; }
+        ul { padding-left: 20px; margin: 10px 0; }
+        li { margin-bottom: 8px; }
+
+        .tech-info { background: #f9f9f9; padding: 15px; border-radius: 6px; font-size: 0.85rem; border: 1px solid #eee; }
+        .tech-info div { margin-bottom: 10px; }
+
+        /* 响应式海报墙 */
         .wall { 
             display: grid; 
             grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
             gap: 15px; 
+            margin-top: 30px;
         }
 
         .card { background: #fff; padding: 8px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); text-align: center; }
-
-        /* 确保图片可点击，并显示为手型 */
-        .card a { text-decoration: none; display: block; }
+        .card a { text-decoration: none; }
         img { 
             width: 100%; 
             height: auto; 
@@ -29,24 +39,45 @@
             object-fit: cover; 
             border-radius: 4px; 
             background: #eee;
-            -webkit-touch-callout: default; /* 显式开启 iOS 长按菜单 */
+            display: block;
         }
         .name { margin-top: 8px; font-size: 10px; color: #999; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-        /* 手机端进一步优化 */
+        /* 手机端适配：针对 600px 以下屏幕 */
         @media (max-width: 600px) {
-            .wall { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px; }
-            .card { padding: 5px; }
+            h1 { font-size: 1.3rem; }
+            .wall { grid-template-columns: repeat(auto-fill, minmax(105px, 1fr)); gap: 10px; }
+            .disclaimer-box { font-size: 0.8rem; padding: 10px 15px; }
+            .container { padding: 0; }
         }
-        footer { text-align: center; margin: 40px 0; color: #bdc3c7; font-size: 0.7rem; }
+        footer { text-align: center; margin: 50px 0; color: #bdc3c7; font-size: 0.8rem; border-top: 1px solid #eee; padding-top: 20px; }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
             <h1>CMS 技术研究与示例项目 (kanju666)</h1>
+            <div class="intro">
+                本项目是一个基于开源 CMS 框架（如苹果CMS等）的二次开发或代码结构研究示例。
+            </div>
+
             <div class="disclaimer-box">
-                🛡️ <b>背书说明：</b>本项目仅用于技术研究。点击海报可查看原图，<b>长按图片即可保存到手机相册</b>。
+                <span class="section-title">🛡️ 免责声明 (Disclaimer)</span>
+                <ul>
+                    <li><b>项目目的</b>：本项目仅用于个人学习、代码结构研究以及学术交流目的。作者不建议将其用于任何商业用途。</li>
+                    <li><b>版权声明</b>：本项目代码中包含的采集逻辑和 API 接口均来自互联网公开资源。本项目<b>不存储</b>任何实际版权视频文件，所有视频内容均通过第三方公开 API 实时调用。</li>
+                    <li><b>责任撇清</b>：仓库作者不保证代码的完整性、准确性或可用性。用户因非法使用本项目代码或接口而产生的任何版权争议、行政处罚或法律后果，均由使用者本人承担，作者概不负责。</li>
+                    <li><b>侵权处理</b>：如版权方认为本项目内容侵犯其合法权益，请发送书面通知，作者将在验证后及时删除相关内容。</li>
+                    <li><b>使用条款</b>：请在符合所在国家和地区法律法规的前提下进行技术研究。严禁将本项目用于侵犯他人合法权益的行为。</li>
+                </ul>
+            </div>
+
+            <div class="tech-info">
+                <div><span style="color:#e67e22; font-weight:bold;">🛠️ 技术栈：</span> Python / PHP | SQLite / MySQL | BeautifulSoup / DrissionPage</div>
+                <div><span style="color:#e67e22; font-weight:bold;">📝 许可证：</span> 本项目代码根据 <b>MIT License</b> 许可协议发布。</div>
+                <div style="color: #888; font-size: 0.8rem; margin-top: 10px; border-top: 1px dashed #ddd; padding-top: 10px;">
+                    💡 <b>提示：</b>点击下方图片可查看原图，长按图片可直接保存到手机相册。
+                </div>
             </div>
         </header>
 
@@ -84,7 +115,7 @@
             </div>
         </div>
         <footer>
-            <p>© 2026 技术演示 | 支持手机端长按保存</p>
+            <p>© 2026 技术演示站 | GitHub Pages 部署测试</p>
         </footer>
     </div>
 </body>
